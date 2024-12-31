@@ -38,6 +38,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -56,6 +57,10 @@ dependencies {
     implementation(project(":core"))
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

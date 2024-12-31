@@ -15,6 +15,10 @@ android {
     }
 
     buildTypes {
+        getByName("debug"){
+            buildConfigField(
+                "String","API_KEY","\"d4q1Mr1Or4Am6rhoHuvtpkqE2gDp211P\"")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -22,6 +26,9 @@ android {
                 "proguard-rules.pro"
             )
         }
+    }
+    buildFeatures {
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -39,6 +46,13 @@ dependencies {
     implementation(libs.material)
     implementation(project(":domain"))
     implementation(project(":core"))
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+
+    implementation(libs.gson)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
